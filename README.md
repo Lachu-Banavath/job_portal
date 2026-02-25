@@ -50,7 +50,7 @@ npm start
 node app.js
 ```
 
-Open http://localhost:3000 in your browser.
+Open http://localhost:8080 in your browser.
 
 ## Project structure
 - `app.js` – application entry point
