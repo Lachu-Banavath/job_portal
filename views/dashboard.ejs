@@ -1,0 +1,57 @@
+<% layout("layouts/boilerplate") %>
+
+<h2 class="mb-4">Dashboard</h2>
+
+<div class="row">
+
+    <!-- Total Jobs Card -->
+    <div class="col-md-4">
+        <div class="card text-white bg-primary mb-3 shadow">
+            <div class="card-body">
+                <h5 class="card-title">Total Jobs</h5>
+                <h3><%= totalJobs %></h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Create -->
+    <div class="col-md-4">
+        <div class="card text-white bg-success mb-3 shadow">
+            <div class="card-body">
+                <h5 class="card-title">Quick Action</h5>
+                <a href="/listings/new" class="btn btn-light">
+                    Create New Job
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<hr>
+
+<h4 class="mt-4">Recent Jobs</h4>
+
+<table class="table table-striped mt-3">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Company</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% jobs.forEach(job => { %>
+            <tr>
+                <td><%= job.title %></td>
+                <td><%= job.company %></td>
+                <td>
+                    <a href="/listings/<%= job._id %>" 
+                       class="btn btn-sm btn-outline-primary">
+                       View
+                    </a>
+                </td>
+            </tr>
+        <% }) %>
+    </tbody>
+</table>

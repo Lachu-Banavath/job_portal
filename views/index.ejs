@@ -1,0 +1,33 @@
+<% layout("layouts/boilerplate.ejs") %>
+
+<h1 class="mb-4">All Job Listings</h1>
+
+<a href="/listings/new" class="btn btn-primary mb-3">
+    Create New Job
+</a>
+
+<% if (!listings || listings.length === 0) { %>
+    <div class="alert alert-warning">
+        No jobs available.
+    </div>
+<% } %>
+
+<div class="row">
+    <% listings.forEach(listing => { %>
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title"><%= listing.title %></h5>
+                    <p class="card-text">
+                        <strong>Company:</strong> <%= listing.company %>
+                    </p>
+
+                    <a href="/listings/<%= listing._id %>" 
+                       class="btn btn-sm btn-outline-primary">
+                       View
+                    </a>
+                </div>
+            </div>
+        </div>
+    <% }) %>
+</div>
